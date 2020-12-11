@@ -1,6 +1,7 @@
 var readlineSync = require('readline-sync');
-var utility = require('./utility');
+var SnakesAndLadders = require('./utility');
+
+let game = new SnakesAndLadders();
 
 readlineSync.question("Welcome to Snakes and Ladders game!");
-utility.startGame();
-
+console.log(game.startGame());
