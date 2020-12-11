@@ -2,6 +2,7 @@ const START_POSITION = 0;
 const NO_PLAY = 1;
 const SNAKE = 2;
 const LADDER = 3;
+const WINNING_POSITION = 100;
 
 var playerPosition = START_POSITION;
 
@@ -26,8 +27,10 @@ function options(playerPosition, diceNumber) {
             if(playerPosition < 0) playerPosition = 0;
             console.log("Player landed on a snake, Player is at position " + playerPosition);
         case LADDER:
-            playerPosition += diceNumber;
-            console.log("Player landed on a ladder, Player is at position " + playerPosition);
+            if(playerPosition + diceNumber <= WINNING_POSITION) {
+                playerPosition += diceNumber;
+                console.log("Player landed on a ladder, Player is at position " + playerPosition);
+            } else console.log("Player needs " + (WINNING_POSITION - playerPosition) + " to win!");
 
     }
     return playerPosition;
